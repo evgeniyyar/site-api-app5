@@ -12,13 +12,11 @@ content = response.json()
 streamlit.header(content["title"])
 
 #Картинка
-url_image = content["hdurl"]
-response_image = requests.get(url_image)
+url_image = content["hdurl"]  #юрл ссылка на изображение, взятая из данных (словаря на 8-9 строчках)
+response_image = requests.get(url_image)  # новый запрос на изображение
 image = response_image.content
-
 with open("image.jpg", "wb") as file:
     file.write(image)
-
 streamlit.image("image.jpg")
 
 #Описание
